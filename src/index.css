@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* ─── Colors ───────────────────────────────── */
+  --color-ivory: #FFFDF7;
+  --color-cream: #FBF3E0;
+  --color-gold-300: #E6C36A;
+  --color-gold-500: #C9962E;
+  --color-gold-700: #8A5A12;
+  --color-yellow-400: #F5C842;
+  --color-ink: #2A1C0E;
+  --color-ink-soft: #7A6A55;
+  --color-espresso: #1B0F08;
+  --color-gold-border: rgba(201, 150, 46, 0.3);
+  --color-gold-glow: rgba(201, 150, 46, 0.12);
+
+  /* ─── Fonts ────────────────────────────────── */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+}
+
+/* ─── Base Styles ────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+/* ─── Custom Scrollbar ───────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-500);
+  border-radius: 999px;
+}
+
+/* ─── No-scrollbar utility ───────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Safe area utilities ────────────────────── */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* ─── Gold gradient utility ──────────────────── */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-300), var(--color-yellow-400), var(--color-gold-500));
+}
+
+/* ─── Gold text gradient ─────────────────────── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-300), var(--color-yellow-400), var(--color-gold-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Gold shadow ────────────────────────────── */
+.shadow-gold {
+  box-shadow: 0 4px 20px rgba(201, 150, 46, 0.15);
+}
+
+.shadow-gold-lg {
+  box-shadow: 0 8px 32px rgba(201, 150, 46, 0.2);
+}
+
+/* ─── Gold hairline border ───────────────────── */
+.border-gold {
+  border: 1px solid var(--color-gold-border);
+}
+
+/* ─── Arch shape ─────────────────────────────── */
+.arch-top {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+/* ─── Marquee animation ──────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* ─── Float animation ────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ─── Shimmer effect ─────────────────────────── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ─── Focus ring ─────────────────────────────── */
+.focus-gold:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 2px;
+}
